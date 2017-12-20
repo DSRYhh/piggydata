@@ -1,16 +1,18 @@
-import pandas as pd
-import glob, os
+import numpy as np
 
+# create numpy array with builtin function
+a = np.arange(16)
+a = a.reshape((4, 4))  # reshape to a square matrix
+print(a)
 
-data_path = "C:\\Users\\19137\\Desktop\\shpig\\data"
-os.chdir(data_path)
-file_list = []
-for file in glob.glob("*.xls"):
-    file_list.append(file)
-data_frames = []
-for file in file_list:
-    # YOUR CODE HERE
-    x = pd.ExcelFile(file)
-    data_frames.append(x.parse("Sheet1"))
+# choose a part
+print(a[1:3, 0:2])
 
-data_frames[0].head()
+# create numpy array from python list
+b = np.array([1, 2, 3, 4])
+print(b)
+
+# add with broadcast
+print(a + b)
+
+print(np.vstack((a, b)))
