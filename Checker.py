@@ -59,7 +59,7 @@ def predict_check():
 
         assert coeff.shape == (3, ), "The shape of coefficient matrix should be (3, )"
     except Exception:
-        print(f'Test failed')
+        print(f'Training test failed')
         print(f'Exception trace back:')
         print(traceback.print_exc())
     else:

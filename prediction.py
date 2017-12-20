@@ -31,9 +31,10 @@ def train(x, y):
     :param y: the price of each data
     :return: the linear mapping matrix from features to price
     """
-    reg = linear_model.Ridge()
-    reg.fit(x, y)
-    return reg.coef_
+
+    # TODO YOUR CODE HERE
+    # Create a linear regression model and train it using x and y, then return coefficient matrix
+    pass
 
 
 def normalize(x):
@@ -47,17 +48,15 @@ def normalize(x):
     sow_num = x['母猪存栏（万头）']
     price = x['苗猪平均价格（元/公斤）']
 
+    # transform date to a int or float list or numpy array
     # hint: use timestamp() method of pandas.Timestamp to convert date to int
-    date = list(map(lambda t: t.timestamp(), date.tolist()))
+    # TODO YOUR CODE HERE
 
-    norm = lambda a: (a - np.min(a))/(np.max(a) - np.min(a))
-
-    date = norm(date).reshape(-1, 1)
-    pig_num = norm(pig_num).reshape(-1, 1)
-    sow_num = norm(sow_num).reshape(-1, 1)
+    # normalize pig_num, date, sow_num
+    # TODO YOUR CODE HERE
 
     return np.hstack((date, pig_num, sow_num)), price
 
 
 if __name__ == '__main__':
-    Checker.predict_check()
+    Checker.normalization_check()
