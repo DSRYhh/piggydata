@@ -62,7 +62,7 @@ def predict_check():
 
         predict(data_test, model)
     except Exception:
-        print(f'Test failed')
+        print(f'Training test failed')
         print(f'Exception trace back:')
         print(traceback.print_exc())
     else:
