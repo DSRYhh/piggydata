@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 from dataReader import read_in_data
-from prediction import normalize, split_data, train
+from prediction import normalize, split_data, train, predict
 
 
 def is_normalized(x: np.ndarray) -> bool:
@@ -55,9 +55,12 @@ def predict_check():
         data_train, data_val, data_test = list(
             map(lambda data_set: normalize(data_set), (data_train, data_val, data_test)))
 
-        coeff = train(data_train[0], data_train[1])
+        model = train(data_train[0], data_train[1])
+        coeff = model.coef_
 
         assert coeff.shape == (3, ), "The shape of coefficient matrix should be (3, )"
+
+        predict(data_test, model)
     except Exception:
         print(f'Test failed')
         print(f'Exception trace back:')
