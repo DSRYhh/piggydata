@@ -156,3 +156,18 @@ print(reg.coef_)
 # [ 0.49999999]
 
 ```
+
+## Homework 4: Test your model
+Build the model is the very first step in data analysis. The first version of your model always has a bad performance. The most challenging thing in data analysis is testing and tuning your model again and again, and finally get a satisfactory model.
+
+Visualization is always useful in data analysis. In this part, you're required to test your model and visualize the result.
+
+There're serval steps to train and use your model:
+1. Read in data from files, you should call `readin_data()` in `dataReader`.
+2. Split data to training part and testing part, relative method is `split_data()` in `prediction`
+3. Normailze data, method `normalize()` in `prediction` should be useful. 
+4. Train your model using `train()` in `prediction` with training data
+5. Predict price use `prediction.predict()`
+
+**Your task** is finish `prediction.test_model()` and run `prediction.py` to visualize the final result.
+

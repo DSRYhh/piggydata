@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 from sklearn import linear_model
 
-import Checker
 from dataReader import read_in_data
 
 
@@ -69,7 +68,6 @@ def predict(x: np.ndarray, model: linear_model.Ridge) -> np.ndarray:
     :param x: normalized input features
     :param model: trained linear model
     """
-    # TODO YOUR CODE HERE
     return model.predict(x)
 
 
@@ -79,16 +77,19 @@ def test_model():
     data_path = os.path.join(local_dir, 'data')  # the data directory
 
     # read in data from files. load training data and testing data
-    data = read_in_data(data_path)
-    data_train, _, data_test = split_data(data)
+    # TODO YOUR CODE HERE: read in data from files and split them to training set and testing set
+    data_train = None
+    data_test = None
 
     # normalize data
-    data_train = normalize(data_train)
-    data_test = normalize(data_test)
+    # TODO YOUR CODE HERE: normalize training data and testing data
 
     # train a linear model
-    model = train(data_train[0], data_train[1])
-    predicted_price = predict(data_test[0], model)
+    # TODO YOUR CODE HERE: use training data to train a linear model
+
+    # predict price
+    # TODO YOUR CODE HERE: use trained model to predict piggy price on testing data
+    predicted_price = None
 
     # draw 2 different line to compare
     plt.figure(1)
@@ -96,7 +97,6 @@ def test_model():
     line_predict = plt.scatter(data_test[0][:, 0], predicted_price, label='predict price')
     plt.legend(handles=[line_true, line_predict])
     plt.show()
-    pass
 
 
 if __name__ == '__main__':
